@@ -4,10 +4,11 @@ import Navbar from "../Shared/Navbar";
 const Root = () => {
   return (
     <div className="font-openSans">
+      {/* navbar */}
       <div className="container mx-auto">
         <Navbar></Navbar>
       </div>
-      <h2>This is root components</h2>
+      {/* outlet */}
       <Outlet />
     </div>
   );
