@@ -1,6 +1,18 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        alert("logout success");
+      })
+      .catch((error) => console.error(error));
+  };
+
   const navLinks = (
     <>
       <li>
@@ -12,12 +24,16 @@ const Navbar = () => {
       <li>
         <NavLink to={"/mycart"}>My Cart</NavLink>
       </li>
-      <li>
-        <NavLink to={"/login"}>Login</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/register"}>Register</NavLink>
-      </li>
+      {!user && (
+        <>
+          <li>
+            <NavLink to={"/login"}>Login</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/register"}>Register</NavLink>
+          </li>{" "}
+        </>
+      )}
     </>
   );
 
@@ -50,19 +66,26 @@ const Navbar = () => {
         </div>
         <div className="flex gap-1 items-center ml-2 md:ml-0">
           <img
-            className="h-12 w-12"
+            className="h-8 sm:h-12 w-8 sm:w-12"
             src="https://i.ibb.co/1bCWhZT/brand-shop-bd-logo.png"
             alt=""
           />
-          <h2 className="text-3xl font-black">Brand Shop BD</h2>
+          <h2 className="text-xl sm:text-3xl font-black">Brand Shop BD</h2>
         </div>
       </div>
       <div className="navbar-end hidden md:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      {/* <div className="navbar-end">
-        <button className="btn">Log Out</button>
-      </div> */}
+      {user && (
+        <div className="navbar-end">
+          <button
+            onClick={handleLogOut}
+            className="btn text-white hover:text-black  bg-blue-600 sm:text-white  btn-sm sm:btn sm:bg-blue-600"
+          >
+            Log Out
+          </button>
+        </div>
+      )}
     </div>
   );
 };
