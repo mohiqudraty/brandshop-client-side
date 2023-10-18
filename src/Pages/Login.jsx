@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, signInWithGoogle } = useContext(AuthContext);
 
+  // handle login with email and password
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -24,6 +26,15 @@ const Login = () => {
       });
   };
 
+  // handle sign in with google
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user), toast.success("Google SignIn Success");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -33,15 +44,6 @@ const Login = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
-            <div className="btn bg-gray-800 text-white hover:text-gray-900">
-              <FcGoogle /> Login With Google
-            </div>
-            {/* Divider */}
-            <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-              <p className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">
-                OR
-              </p>
-            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -87,8 +89,21 @@ const Login = () => {
               </p>
             </div>
           </form>
+          {/* Divider */}
+          <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+            <p className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">
+              OR
+            </p>
+          </div>
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn bg-gray-800 w-4/5 mx-auto my-6 text-white hover:text-gray-900"
+          >
+            <FcGoogle /> SignIn With Google
+          </button>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

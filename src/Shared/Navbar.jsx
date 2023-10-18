@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -78,9 +79,21 @@ const Navbar = () => {
       </div>
       {user && (
         <div className="navbar-end">
+          <p className="ml-2">{user?.displayName && user.displayName}</p>
+          <div className=" p-1 rounded-full ring-2 ring-gray-300 duration-1000 hover:ring-gray-700 dark:ring-gray-500">
+            {user?.photoURL ? (
+              <img
+                className="w-10 h-10 rounded-full"
+                src={user.photoURL}
+                alt="Bordered avatar"
+              />
+            ) : (
+              <CgProfile className="w-10 h-10"></CgProfile>
+            )}
+          </div>
           <button
             onClick={handleLogOut}
-            className="btn text-white hover:text-black  bg-blue-600 sm:text-white  btn-sm sm:btn sm:bg-blue-600"
+            className="btn ml-2 text-white hover:text-black  bg-blue-600 sm:text-white  btn-sm sm:btn sm:bg-blue-600"
           >
             Log Out
           </button>

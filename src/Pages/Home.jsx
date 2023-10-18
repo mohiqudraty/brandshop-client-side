@@ -1,15 +1,31 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./HomeSection.jsx/Banner";
 import Brand from "./HomeSection.jsx/Brand";
+import Faq from "./HomeSection.jsx/Faq";
+import { useEffect, useState } from "react";
+import Subscribe from "./HomeSection.jsx/Subscribe";
+import Footer from "../Shared/Footer";
 
 const Home = () => {
   const brands = useLoaderData();
+  const [faqData, setFaqData] = useState([]);
+
+  // load data for faq
+  useEffect(() => {
+    fetch("/faq.json")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setFaqData(data);
+      });
+  }, []);
+
   return (
     <div className="container mx-auto">
       <Banner></Banner>
 
       {/* brand section  */}
-      <div className="my-4 px-3 ">
+      <div className="my-20 px-3 ">
         <h2 className="text-2xl sm:text-4xl font-black text-center">
           Chose Your Favorite Brand
         </h2>
@@ -23,12 +39,26 @@ const Home = () => {
             technology and exceptional experiences.
           </p>
         </div>
-        <div className="  grid sm:grid-cols-2 lg:grid-cols-3 my-4">
+        <div className="  grid gap-3 sm:grid-cols-2 lg:grid-cols-3 my-12 ">
           {brands.map((brand) => (
             <Brand key={brand.id} brand={brand}></Brand>
           ))}
         </div>
       </div>
+
+      {/* Faq section  */}
+      <div className="mt-20">
+        <h2 className="text-4xl text-center font-black  mb-4 underline">
+          Frequently asked questions
+        </h2>
+        {faqData.map((faq) => (
+          <Faq key={faq.id} faq={faq}></Faq>
+        ))}
+      </div>
+
+      {/* Subscribe section  */}
+      <Subscribe></Subscribe>
+      <Footer></Footer>
     </div>
   );
 };

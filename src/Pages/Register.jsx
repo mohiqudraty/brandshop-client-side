@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-
+import toast, { Toaster } from "react-hot-toast";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  // const [error, setError] = useState("");
 
   // handle register -----------------
   const handleRegister = (e) => {
@@ -15,6 +16,23 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
     console.log(form, name, email, photo, password);
+
+    if (password.length < 6) {
+      toast.error("Password must be  6 characters long.");
+      return;
+    }
+
+    const hasCapitalLetter = /(?=.*?[A-Z])/.test(password);
+    const hasSpecialCharacter = /(?=.*?[#?!@$%^&*-])/.test(password);
+
+    if (!hasCapitalLetter) {
+      toast.error("Password must contain one uppercase letter.");
+      return;
+    }
+    if (!hasSpecialCharacter) {
+      toast.error("Password must contain one special character");
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -100,6 +118,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

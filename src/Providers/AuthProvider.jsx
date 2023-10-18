@@ -2,10 +2,12 @@ import PropTypes from "prop-types";
 
 import { createContext, useEffect, useState } from "react";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
@@ -17,6 +19,14 @@ const AuthProvider = ({ children }) => {
   //   console.log(children);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(null);
+
+  const googlePrvider = new GoogleAuthProvider();
+
+  // sign in with google
+  const signInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googlePrvider);
+  };
 
   // create user
   const createUser = (email, password) => {
@@ -51,6 +61,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUser,
     loginUser,
+    signInWithGoogle,
     logOut,
   };
   return (
