@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { CgProfile } from "react-icons/cg";
 
@@ -40,9 +40,9 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100">
-      <div className="navbar-center md:navbar-start">
+      <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost md:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -65,21 +65,23 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <div className="flex gap-1 items-center ml-2 md:ml-0">
+        <Link to={"/"} className="btn btn-ghost normal-case text-xl">
           <img
             className="h-8 sm:h-12 w-8 sm:w-12"
             src="https://i.ibb.co/1bCWhZT/brand-shop-bd-logo.png"
             alt=""
           />
-          <h2 className="text-xl sm:text-3xl font-black">Brand Shop BD</h2>
-        </div>
+          <span className="hidden sm:flex">Brand Shop BD</span>
+        </Link>
       </div>
-      <div className="navbar-end hidden md:flex">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       {user && (
         <div className="navbar-end">
-          <p className="ml-2">{user?.displayName && user.displayName}</p>
+          <p className="mx-2 hidden sm:flex">
+            {user?.displayName && user.displayName}
+          </p>
           <div className=" p-1 rounded-full ring-2 ring-gray-300 duration-1000 hover:ring-gray-700 dark:ring-gray-500">
             {user?.photoURL ? (
               <img
