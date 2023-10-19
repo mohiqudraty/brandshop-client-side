@@ -2,17 +2,17 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 const Products = () => {
   const { brandName } = useParams();
-  console.log(brandName);
+  // console.log(brandName);
   const products = useLoaderData();
 
-  const product = products.filter((p) => p.brandName === brandName);
+  // const product = products.filter((p) => p.brandName === brandName);
 
-  // console.log(products);
+  console.log(products);
   return (
     <div className="my-10">
       <h2 className="text-4xl text-center my-5">All Product Of {brandName}</h2>
       <div className="max-w-5xl mx-auto grid gap-5 px-4 sm:grid-cols-2">
-        {product.map((p) => (
+        {products.map((p) => (
           <div key={p.name}>
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <img
