@@ -64,7 +64,7 @@ const ProductCard = ({ product }) => {
             </p>
             <p className="font-medium">Category: {type.toUpperCase()}</p>
           </div>
-          {/* <p>{shortDescription}</p> */}
+          <p className="hidden">{description}</p>
           <div className="flex items-center justify-between mt-3">
             <Link to={`/update/${_id}`}>
               <button
