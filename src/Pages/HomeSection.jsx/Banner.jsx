@@ -1,48 +1,25 @@
 const Banner = () => {
   return (
-    <div className="carousel w-full">
-      <div id="slide1" className="carousel-item relative w-full">
-        <img src="https://i.ibb.co/r438Vz7/sony0.jpg" className="w-full" />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide4" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide2" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide2" className="carousel-item relative w-full">
-        <img src="https://i.ibb.co/r438Vz7/sony0.jpg" className="w-full" />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide1" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide3" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide3" className="carousel-item relative w-full">
-        <img src="https://i.ibb.co/r438Vz7/sony0.jpg" className="w-full" />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide2" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide4" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide4" className="carousel-item relative w-full">
-        <img src="https://i.ibb.co/r438Vz7/sony0.jpg" className="w-full" />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide3" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide1" className="btn btn-circle">
-            ❯
-          </a>
+    <div
+      className="hero min-h-[550px]"
+      style={{
+        backgroundImage: "url(https://i.ibb.co/7jJ80Vf/bnner-tech.jpg)",
+      }}
+    >
+      <div className="hero-overlay bg-opacity-90"></div>
+      <div className="hero-content text-center text-neutral-content">
+        <div className="max-w-md">
+          <h1 className="mb-5 text-5xl font-bold">
+            {" "}
+            Explore the World of Technology & Electronics
+          </h1>
+          <p className="mb-5">
+            Discover the latest innovations from leading brands like Apple,
+            Samsung, Sony, Google, Intel, and more.
+          </p>
+          <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+            Explore
+          </button>
         </div>
       </div>
     </div>

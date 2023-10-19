@@ -21,6 +21,7 @@ const Home = () => {
 
   return (
     <div className="container mx-auto">
+      {/* Banner section  */}
       <Banner></Banner>
 
       {/* brand section  */}

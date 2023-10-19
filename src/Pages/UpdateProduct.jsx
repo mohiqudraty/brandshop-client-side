@@ -1,6 +1,10 @@
 import toast from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
-const AddProduct = () => {
+const UpdateProduct = () => {
+  const productsForUpdate = useLoaderData();
+  console.log(productsForUpdate);
+
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -38,10 +42,9 @@ const AddProduct = () => {
         }
       });
   };
-
   return (
     <form onSubmit={handleAddProduct} className="container mx-auto my-8 px-4">
-      <h2 className="text-4xl font-bold text-center">Add Your Product</h2>
+      <h2 className="text-4xl font-bold text-center">Update Your Product</h2>
       <div className="max-w-5xl mx-auto  my-6 grid gap-10 sm:grid-cols-2 ">
         {/*  input for Product Img URL */}
         <div>
@@ -82,11 +85,11 @@ const AddProduct = () => {
             Brand Name
           </label>
           {/* <input
-            type="text"
-            name="brand"
-            placeholder="Brand Name"
-            className="input input-bordered input-group w-full "
-          /> */}
+        type="text"
+        name="brand"
+        placeholder="Brand Name"
+        className="input input-bordered input-group w-full "
+      /> */}
           <select
             id="pet-select"
             type="text"
@@ -156,11 +159,11 @@ const AddProduct = () => {
             Rating
           </label>
           {/* <input
-            type="number"
-            name="rating"
-            placeholder="Rating (1-5) Number"
-            className="input input-bordered input-group w-full "
-          /> */}
+        type="number"
+        name="rating"
+        placeholder="Rating (1-5) Number"
+        className="input input-bordered input-group w-full "
+      /> */}
           <select
             id="pet-select"
             name="rating"
@@ -187,4 +190,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-import { CgProfile } from "react-icons/cg";
+import { CgLogIn, CgProfile, CgUser } from "react-icons/cg";
 import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
@@ -29,10 +29,14 @@ const Navbar = () => {
       {!user && (
         <>
           <li>
-            <NavLink to={"/login"}>Login</NavLink>
+            <NavLink className=" flex items-center " to={"/login"}>
+              <CgLogIn></CgLogIn> Login
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={"/register"}>Register</NavLink>
+          <li className="   flex items-center ">
+            <NavLink to={"/register"}>
+              <CgUser></CgUser>Register
+            </NavLink>
           </li>{" "}
         </>
       )}
@@ -78,30 +82,35 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      {user && (
-        <div className="navbar-end">
-          <p className="mx-2 hidden sm:flex">
-            {user?.displayName && user.displayName}
-          </p>
-          <div className=" p-1 rounded-full ring-2 ring-gray-300 duration-1000 hover:ring-gray-700 dark:ring-gray-500">
-            {user?.photoURL ? (
-              <img
-                className="w-10 h-10 rounded-full"
-                src={user.photoURL}
-                alt="Bordered avatar"
-              />
-            ) : (
-              <CgProfile className="w-10 h-10"></CgProfile>
-            )}
-          </div>
-          <button
-            onClick={handleLogOut}
-            className="btn ml-2 text-white hover:text-black  bg-blue-600 sm:text-white  btn-sm sm:btn sm:bg-blue-600"
-          >
-            Log Out
-          </button>
-        </div>
-      )}
+
+      <div className="navbar-end">
+        {user && (
+          <>
+            {" "}
+            <p className="mx-2 hidden sm:flex">
+              {user?.displayName && user.displayName}
+            </p>
+            <div className=" p-1 rounded-full ring-2 ring-gray-300 duration-1000 hover:ring-gray-700 dark:ring-gray-500">
+              {user?.photoURL ? (
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={user.photoURL}
+                  alt="Bordered avatar"
+                />
+              ) : (
+                <CgProfile className="w-10 h-10"></CgProfile>
+              )}
+            </div>
+            <button
+              onClick={handleLogOut}
+              className="btn ml-2 text-white hover:text-black  bg-blue-600 sm:text-white  btn-sm sm:btn sm:bg-blue-600"
+            >
+              Log Out
+            </button>{" "}
+          </>
+        )}
+      </div>
+
       <Toaster />
     </div>
   );
