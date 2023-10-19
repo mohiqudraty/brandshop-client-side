@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { CgProfile } from "react-icons/cg";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,7 +10,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("logout success");
+        toast.success("Logout Success");
       })
       .catch((error) => console.error(error));
   };
@@ -71,7 +72,7 @@ const Navbar = () => {
             src="https://i.ibb.co/1bCWhZT/brand-shop-bd-logo.png"
             alt=""
           />
-          <span className="hidden sm:flex">Brand Shop BD</span>
+          <span className="hidden font-bold sm:flex">Brand Shop BD</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -101,6 +102,7 @@ const Navbar = () => {
           </button>
         </div>
       )}
+      <Toaster />
     </div>
   );
 };

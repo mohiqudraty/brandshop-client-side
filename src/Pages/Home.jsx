@@ -4,7 +4,6 @@ import Brand from "./HomeSection.jsx/Brand";
 import Faq from "./HomeSection.jsx/Faq";
 import { useEffect, useState } from "react";
 import Subscribe from "./HomeSection.jsx/Subscribe";
-import Footer from "../Shared/Footer";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -58,7 +57,6 @@ const Home = () => {
 
       {/* Subscribe section  */}
       <Subscribe></Subscribe>
-      <Footer></Footer>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { loginUser, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // handle login with email and password
   const handleLogin = (e) => {
@@ -19,10 +20,13 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
-        alert("login success");
+        toast.success("Google SignIn Success");
+
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
+        toast.error("Please Provide Valid Email & Password");
       });
   };
 
@@ -31,6 +35,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user), toast.success("Google SignIn Success");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
