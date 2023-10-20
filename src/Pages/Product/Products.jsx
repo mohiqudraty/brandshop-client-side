@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import Slider from "./Slider";
 
 const Products = () => {
   const { brandName } = useParams();
@@ -9,6 +10,7 @@ const Products = () => {
 
   return (
     <div className="my-10">
+      <Slider></Slider>
       <h2 className="text-4xl text-center my-8">All Product Of {brandName}</h2>
 
       <div className="max-w-5xl mx-auto grid gap-5 px-4 sm:grid-cols-2">

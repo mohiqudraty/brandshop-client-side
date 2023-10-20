@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const productDetails = useLoaderData();
   // console.log(productDetails);
@@ -13,19 +14,10 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     console.log(productDetails);
-    const {
-      _id,
-      image,
-      name,
-      brandName,
-      type,
-      price,
-      shortDescription,
-      rating,
-    } = productDetails;
+    const { image, name, brandName, type, price, shortDescription, rating } =
+      productDetails;
 
     const product = {
-      _id,
       image,
       name,
       brandName,
@@ -50,17 +42,27 @@ const ProductDetails = () => {
         console.log(data);
         if (data.insertedId) {
           toast.success("Product Add To Cart Successful");
+          navigate("/mycart");
         }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.error("Something Problem!");
+        navigate("/mycart");
       });
   };
 
   return (
     <div>
-      <div className="card max-w-5xl  mx-auto bg-base-100 shadow-xl flex flex-col md:flex-row">
+      <div className="card max-w-5xl my-10  mx-auto bg-base-100 shadow-xl flex flex-col md:flex-row">
         <figure className="px-10 pt-10 md:w-2/3">
-          <img src={image} alt={name} className="rounded-xl" />
+          <img
+            src={image}
+            alt={name}
+            className="rounded-xl max-h-96 w-full object-cover"
+          />
         </figure>
-        <div className="card-body justify-center ">
+        <div className="card-body  ">
           <h2 className="card-title py-1">{name}</h2>
 
           <p>

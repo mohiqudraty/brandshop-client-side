@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content">
+    <footer className="footer p-10 bg-gray-400 text-base-content">
       <aside>
         <img
           className="w-12 h-12"
@@ -8,24 +8,24 @@ const Footer = () => {
           alt=""
         />
         <p>
-          ACME Industries Ltd.
+          Brand Shop BD Ltd.
           <br />
           Providing reliable tech since 1992
         </p>
       </aside>
       <nav>
-        <header className="footer-title">Services</header>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <header className="footer-title">Brand</header>
+        <a className="link link-hover">Apple</a>
+        <a className="link link-hover">Samsung</a>
+        <a className="link link-hover">Microsoft</a>
+        <a className="link link-hover">Google</a>
+        <a className="link link-hover">Sony and More...</a>
       </nav>
       <nav>
         <header className="footer-title">Company</header>
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
       </nav>
       <nav>
         <header className="footer-title">Legal</header>
