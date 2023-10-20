@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
   const products = useLoaderData();
-  const { image, name, brandName, type, price, description, rating } = products;
+  const { _id, image, name, brandName, type, price, rating } = products;
 
   const handleUpdateProduct = (e) => {
     e.preventDefault();
@@ -13,31 +13,29 @@ const UpdateProduct = () => {
     const brandName = form.brandName.value;
     const type = form.type.value;
     const price = form.price.value;
-    const description = form.description.value;
     const rating = form.rating.value;
-    const newProduct = {
+    const updateProduct = {
       image,
       name,
       brandName,
       type,
       price,
-      description,
       rating,
     };
-    console.log(newProduct);
+    console.log(updateProduct);
 
-    fetch("http://localhost:5000/products", {
-      method: "POST",
+    fetch(`http://localhost:5000/products/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(updateProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
-          toast.success("Your Product successfully Added!");
+        if (data.modifiedCount > 0) {
+          toast.success("Your Product successfully Updated!");
           form.reset();
         }
       });
@@ -147,22 +145,7 @@ const UpdateProduct = () => {
                 className="input input-bordered input-group w-full "
               />
             </div>
-            {/*  input for Short description */}
-            <div>
-              <label
-                htmlFor="first_name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Short Description
-              </label>
-              <textarea
-                type="text"
-                name="description"
-                defaultValue={description}
-                placeholder="Short Description"
-                className="input input-bordered input-group w-full "
-              />
-            </div>
+
             {/*  input for Rating */}
             <div>
               <label
@@ -198,7 +181,7 @@ const UpdateProduct = () => {
             type="submit"
             className="text-white block mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Add Product
+            Update Product Info
           </button>
         </form>
       }
