@@ -4,7 +4,9 @@ const MyCart = () => {
   return (
     <div className="my-10">
       <h2 className="text-center text-4xl font-bold mb-10">My Cart</h2>
-      <CartCard></CartCard>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <CartCard></CartCard>
+      </div>
     </div>
   );
 };

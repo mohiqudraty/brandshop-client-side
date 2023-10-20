@@ -5,12 +5,8 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { Navigate } from "react-router-dom";
 
 const PrivetRoute = ({ children }) => {
-  console.log(children);
+  // console.log(children);
   const { user } = useContext(AuthContext);
-
-  if (!user) {
-    return <Navigate to={"/login"}></Navigate>;
-  }
 
   if (!user) {
     return (
@@ -23,6 +19,9 @@ const PrivetRoute = ({ children }) => {
 
   if (user) {
     return children;
+  }
+  if (!user) {
+    return <Navigate to={"/login"}></Navigate>;
   }
 };
 

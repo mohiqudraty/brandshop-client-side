@@ -15,20 +15,19 @@ const Products = () => {
         {products.map((product) => (
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}
-
-        {!products.length && (
-          <div>
-            <img
-              className="max-w-xs mx-auto"
-              src="https://i.ibb.co/SJHjcpB/out-of-stock.jpg"
-              alt=""
-            />
-            <h1 className="text-center text-3xl font-semibold text-gray-600 my-8">
-              Products Out of Stock! Right Now.
-            </h1>
-          </div>
-        )}
       </div>
+      {!products.length && (
+        <div>
+          <img
+            className="max-w-xs block mx-auto"
+            src="https://i.ibb.co/SJHjcpB/out-of-stock.jpg"
+            alt=""
+          />
+          <h1 className="text-center text-3xl font-semibold text-gray-600 my-8">
+            Products Out of Stock! Right Now.
+          </h1>
+        </div>
+      )}
     </div>
   );
 };

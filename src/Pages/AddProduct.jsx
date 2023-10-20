@@ -9,7 +9,7 @@ const AddProduct = () => {
     const brandName = form.brandName.value;
     const type = form.type.value;
     const price = form.price.value;
-    const description = form.description.value;
+    const shortDescription = form.shortDescription.value;
     const rating = form.rating.value;
     const newProduct = {
       image,
@@ -17,7 +17,7 @@ const AddProduct = () => {
       brandName,
       type,
       price,
-      description,
+      shortDescription,
       rating,
     };
     console.log(newProduct);
@@ -132,7 +132,7 @@ const AddProduct = () => {
             className="input input-bordered input-group w-full "
           />
         </div>
-        {/*  input for Short description */}
+        {/*  input for Short shortDescription */}
         <div>
           <label
             htmlFor="first_name"
@@ -142,7 +142,7 @@ const AddProduct = () => {
           </label>
           <textarea
             type="text"
-            name="description"
+            name="shortDescription"
             placeholder="Short Description"
             className="input input-bordered input-group w-full "
           />
