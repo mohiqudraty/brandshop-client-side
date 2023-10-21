@@ -14,11 +14,12 @@ const Products = () => {
       <h2 className="text-4xl text-center my-8">All Product Of {brandName}</h2>
 
       <div className="max-w-5xl mx-auto grid gap-5 px-4 sm:grid-cols-2">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product}></ProductCard>
-        ))}
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product._id} product={product}></ProductCard>
+          ))}
       </div>
-      {!products.length && (
+      {!products?.length && (
         <div>
           <img
             className="max-w-xs block mx-auto"

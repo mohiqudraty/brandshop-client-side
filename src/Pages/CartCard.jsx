@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const CartCard = ({ cart, myCart, setMycart }) => {
   const { _id, image, name, brandName, type, price, shortDescription, rating } =
-    cart;
+    cart || {};
 
   // console.log(typeof _id);
   const handleDelete = (_id) => {
@@ -20,7 +20,7 @@ const CartCard = ({ cart, myCart, setMycart }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${_id}`, {
+        fetch(`https://brand-shop-bd-server.vercel.app/carts/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -30,7 +30,7 @@ const CartCard = ({ cart, myCart, setMycart }) => {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
 
-            const remainingCart = myCart.filter((cart) => cart._id !== _id);
+            const remainingCart = myCart?.filter((cart) => cart._id !== _id);
             setMycart(remainingCart);
           });
       }

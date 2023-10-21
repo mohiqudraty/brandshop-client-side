@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const productDetails = useLoaderData();
   // console.log(productDetails);
   const { image, name, brandName, type, price, shortDescription, rating } =
-    productDetails;
+    productDetails || {};
 
   const handleAddToCart = () => {
     console.log(productDetails);
@@ -30,7 +30,7 @@ const ProductDetails = () => {
 
     console.log(product);
 
-    fetch("http://localhost:5000/carts", {
+    fetch("https://brand-shop-bd-server.vercel.app/carts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -72,39 +72,38 @@ const ProductDetails = () => {
             <span className=" font-bold">Type: </span> {type}
           </p>
 
-          <div className="flex gap-2">
-            <span className=" font-bold">Rating:</span>
-            <div className="rating">
+          <div className="flex items-center">
+            <span className=" font-bold mr-1">Rating:</span>
+            <div className="rating rating-md">
               <input
                 type="radio"
-                name="rating-2"
+                name="rating-7"
                 className="mask mask-star-2 bg-orange-400"
               />
               <input
                 type="radio"
-                name="rating-2"
+                name="rating-7"
                 className="mask mask-star-2 bg-orange-400"
               />
               <input
                 type="radio"
-                name="rating-2"
+                name="rating-7"
                 className="mask mask-star-2 bg-orange-400"
               />
               <input
                 type="radio"
-                name="rating-2"
+                name="rating-7"
                 className="mask mask-star-2 bg-orange-400"
               />
               <input
                 type="radio"
-                name="rating-2"
+                name="rating-7"
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <p hidden className=" font-bold">
-              {" "}
+            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
               {rating}
-            </p>
+            </span>
           </div>
 
           <p>

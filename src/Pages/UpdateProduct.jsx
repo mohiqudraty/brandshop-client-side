@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
   const products = useLoaderData();
-  const { _id, image, name, brandName, type, price, rating } = products;
+  const { _id, image, name, brandName, type, price, rating } = products || {};
 
   const handleUpdateProduct = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const UpdateProduct = () => {
     };
     console.log(updateProduct);
 
-    fetch(`http://localhost:5000/products/${_id}`, {
+    fetch(`https://brand-shop-bd-server.vercel.app/products/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -110,7 +110,7 @@ const UpdateProduct = () => {
                 <option value="Google">Google</option>
                 <option value="Intel">Intel</option>
                 <option value="Microsoft">Microsoft</option>
-                <option value="Others">Others</option>
+                <option value="Sony">Sony</option>
               </select>
             </div>
             {/*  input for Type */}

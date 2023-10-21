@@ -47,7 +47,7 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(`https://brand-shop-bd-server.vercel.app/product/${params.id}`),
       },
       {
         path: "/details/:id",
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(`https://brand-shop-bd-server.vercel.app/product/${params.id}`),
       },
       {
         path: "/mycart",
@@ -71,7 +71,9 @@ const router = createBrowserRouter([
         path: "/:brandName",
         element: <Products></Products>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.brandName}`),
+          fetch(
+            `https://brand-shop-bd-server.vercel.app/products/${params.brandName}`
+          ),
       },
       {
         path: "/payment",

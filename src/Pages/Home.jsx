@@ -40,9 +40,10 @@ const Home = () => {
           </p>
         </div>
         <div className="  grid gap-3 sm:grid-cols-2 lg:grid-cols-3 my-12 ">
-          {brands.map((brand) => (
-            <Brand key={brand._id} brand={brand}></Brand>
-          ))}
+          {brands &&
+            brands.map((brand) => (
+              <Brand key={brand._id} brand={brand}></Brand>
+            ))}
         </div>
       </div>
 
@@ -51,9 +52,7 @@ const Home = () => {
         <h2 className="text-4xl text-center font-black  mb-4 underline">
           Frequently asked questions
         </h2>
-        {faqData.map((faq) => (
-          <Faq key={faq.id} faq={faq}></Faq>
-        ))}
+        {faqData && faqData.map((faq) => <Faq key={faq.id} faq={faq}></Faq>)}
       </div>
 
       {/* Subscribe section  */}

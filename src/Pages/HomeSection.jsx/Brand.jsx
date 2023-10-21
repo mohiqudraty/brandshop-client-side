@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Brand = ({ brand }) => {
   // console.log(brand);
-  const { brandName, img } = brand;
+  const { brandName, img } = brand || {}
 
   return (
     <Link to={brandName}>

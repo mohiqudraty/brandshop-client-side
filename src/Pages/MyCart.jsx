@@ -8,7 +8,7 @@ const MyCart = () => {
 
   const [myCart, setMycart] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/carts/${email}`)
+    fetch(`https://brand-shop-bd-server.vercel.app/carts/${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -20,14 +20,15 @@ const MyCart = () => {
     <div className="my-10">
       <h2 className="text-center text-4xl font-bold mb-10">My Cart</h2>
       <div className="grid gap-5 sm:grid-cols-2">
-        {myCart.map((cart) => (
-          <CartCard
-            key={cart._id}
-            cart={cart}
-            myCart={myCart}
-            setMycart={setMycart}
-          ></CartCard>
-        ))}
+        {myCart &&
+          myCart.map((cart) => (
+            <CartCard
+              key={cart._id}
+              cart={cart}
+              myCart={myCart}
+              setMycart={setMycart}
+            ></CartCard>
+          ))}
       </div>
     </div>
   );

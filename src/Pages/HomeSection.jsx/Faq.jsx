@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const Faq = ({ faq }) => {
-  const { question, answer } = faq;
+  const { question, answer } = faq || {}
   return (
     <div className="collapse collapse-arrow bg-base-200">
       <input type="checkbox" />

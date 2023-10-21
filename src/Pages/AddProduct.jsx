@@ -22,7 +22,7 @@ const AddProduct = () => {
     };
     console.log(newProduct);
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://brand-shop-bd-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -99,6 +99,7 @@ const AddProduct = () => {
             <option value="Google">Google</option>
             <option value="Intel">Intel</option>
             <option value="Microsoft">Microsoft</option>
+            <option value="Sony">Sony</option>
             <option value="Others">Others</option>
           </select>
         </div>

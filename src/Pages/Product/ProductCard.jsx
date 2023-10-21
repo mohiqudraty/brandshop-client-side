@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 const ProductCard = ({ product }) => {
   const { _id, image, name, brandName, type, price, description, rating } =
-    product;
+    product || {}
 
   return (
     <div>
