@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-gray-400 text-base-content">
+    <footer className="footer p-10 border-t-2 text-base-content">
       <aside>
         <img
           className="w-12 h-12"
@@ -10,14 +10,13 @@ const Footer = () => {
         <p>
           Brand Shop BD Ltd.
           <br />
-          Providing reliable tech since 1992
+          Providing Brand Products since 20043 .
         </p>
       </aside>
       <nav>
         <header className="footer-title">Brand</header>
         <a className="link link-hover">Apple</a>
         <a className="link link-hover">Samsung</a>
-        <a className="link link-hover">Microsoft</a>
         <a className="link link-hover">Google</a>
         <a className="link link-hover">Sony and More...</a>
       </nav>

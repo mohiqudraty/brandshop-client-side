@@ -6,9 +6,9 @@ import { Navigate } from "react-router-dom";
 
 const PrivetRoute = ({ children }) => {
   // console.log(children);
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
 
-  if (!user) {
+  if (loading) {
     return (
       <div className="w-10 mx-auto mt-20">
         <p>Loading...</p>
@@ -20,6 +20,7 @@ const PrivetRoute = ({ children }) => {
   if (user) {
     return children;
   }
+
   if (!user) {
     return <Navigate to={"/login"}></Navigate>;
   }

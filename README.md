@@ -1,8 +1,9 @@
-# React + Vite
+## Here is Our 5 Website Feature
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- We can Add product with add product form.
+- We can chose specific brand product Like, apple, samsung , sony etc. show wiil be the product detail.
+- We can Update the product information like Product name, brand name, price etc.
+- We add any product and show will be on my cart page and we can by and delete product from my cart page.
+- Anyone cant see the details, Update, and can not add any product without sign up/login. etc...
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Live Link: https://brand-shop-bd.web.app/

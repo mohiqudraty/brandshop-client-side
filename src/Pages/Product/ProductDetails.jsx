@@ -14,8 +14,8 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     console.log(productDetails);
-    const { image, name, brandName, type, price, shortDescription, rating } =
-      productDetails;
+    // const { image, name, brandName, type, price, shortDescription, rating } =
+    //   productDetails;
 
     const product = {
       image,
@@ -66,15 +66,14 @@ const ProductDetails = () => {
           <h2 className="card-title py-1">{name}</h2>
 
           <p>
-            <span className="text-gray-900 font-medium">Brand: </span>{" "}
-            {brandName}
+            <span className=" font-bold">Brand: </span> {brandName}
           </p>
           <p>
-            <span className="text-gray-900 font-medium">Type: </span> {type}
+            <span className=" font-bold">Type: </span> {type}
           </p>
 
           <div className="flex gap-2">
-            <span className="text-gray-900 font-medium">Rating:</span>
+            <span className=" font-bold">Rating:</span>
             <div className="rating">
               <input
                 type="radio"
@@ -102,19 +101,18 @@ const ProductDetails = () => {
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <p hidden className="text-gray-900 font-medium">
+            <p hidden className=" font-bold">
               {" "}
               {rating}
             </p>
           </div>
 
           <p>
-            <span className="text-gray-900 font-medium">Price:</span> ${price}
+            <span className=" font-bold">Price:</span> ${price}
           </p>
 
           <p>
-            <span className="text-gray-900 font-medium">Description:</span>{" "}
-            {shortDescription}
+            <span className="  font-bold">Description:</span> {shortDescription}
           </p>
 
           <div className="card-actions ">

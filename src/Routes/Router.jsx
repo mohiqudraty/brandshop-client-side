@@ -10,6 +10,7 @@ import PrivetRoute from "./PrivetRoute";
 import UpdateProduct from "../Pages/UpdateProduct";
 import ProductDetails from "../Pages/Product/ProductDetails";
 import ErrorPage from "../Pages/ErrorPage";
+import Payment from "../Pages/Payment";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
         element: <Products></Products>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.brandName}`),
+      },
+      {
+        path: "/payment",
+        element: (
+          <PrivetRoute>
+            <Payment></Payment>
+          </PrivetRoute>
+        ),
       },
     ],
   },
